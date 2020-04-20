@@ -3,6 +3,7 @@ const app = express();
 const db = require('./database');
 const cors = require('cors');
 const cancion_model = require('./models/cancion.model')
+const album_model = require('./models/album.model')
 
 app.use(cors())
 
@@ -21,5 +22,7 @@ app.get('/', (req,res)=>{
 
 app.get('/canciones', cancion_model.getCanciones)
 app.get('/cancion/:id', cancion_model.getCancion)
+
+app.get('/albumes', album_model.getAlbumes)
 
 app.listen(process.env.PORT || 3333, () => console.log("runing..."))
