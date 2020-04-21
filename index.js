@@ -22,6 +22,7 @@ app.get('/', (req,res)=>{
 
 app.get('/canciones', cancion_model.getCanciones)
 app.get('/cancion/:id', cancion_model.getCancion)
+app.get('/album/:id_album/canciones', cancion_model.getCancionesByAlbumId)
 
 app.get('/albumes', album_model.getAlbumes)
 

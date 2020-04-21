@@ -19,7 +19,20 @@ const conn = {
             resp.send(result.rows)
             console.log('Cancion ready..')}
         })
+    }, 
+    
+    getCancionesByAlbumId: (req, resp) => {
+        const id = parseInt(req.params.id_album)
+
+        pool.query('SELECT * FROM cancion WHERE id_album_fk = $1' , [id], (err, result) => {
+            if(err){
+            console.log(err)}
+            else{
+            resp.send(result.rows)
+            console.log('Cancion ready..')}
+        })
     }
+
 }
 
 module.exports = conn;
