@@ -32,5 +32,5 @@ app.get('/album/:id_album/canciones', cancion_model.getCancionesByAlbumId)
 
 app.get('/albumes', album_model.getAlbumes)
 app.post('/albumes', album_model.createAlbum)
-
+app.delete('/album/:id', album_model.deleteAlbum)
 app.listen(process.env.PORT || 3333, () => console.log("runing..."))

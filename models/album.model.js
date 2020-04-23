@@ -23,6 +23,19 @@ const conn  = {
                 res.send('new album ' + titulo_album + ' added')
             }
         })
+    },
+
+    deleteAlbum: (req, res)=>{
+        const id = parseInt(req.params.id)
+        pool.query('DELETE FROM album WHERE id_album = $1', [id], 
+        (err, result)=>{
+            if(err){
+                console.log(err)
+            }else{
+                res.send('Album eliminado correctamente')
+            }
+        })
     }
+
 }
 module.exports = conn
