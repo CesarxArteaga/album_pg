@@ -31,6 +31,18 @@ const conn = {
             resp.send(result.rows)
             console.log('Cancion ready..')}
         })
+    }, 
+
+    createCacion: (req, res) =>{
+        const {titulo_cancion, duracion, id_album_fk} = req.body
+        pool.query('INSERT INTO cancion (titulo_cancion, duracion, id_album_fk) VALUES ($1, $2, $3)',[titulo_cancion, duracion, id_album_fk],
+        (err, result) => {
+            if(err){
+                console.log(err)
+            }else{
+                res.send('Cancion creada')
+            }
+        })
     }
 
 }
