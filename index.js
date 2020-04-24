@@ -6,12 +6,14 @@ const bodyParser = require('body-parser')
 const cancion_model = require('./models/cancion.model')
 const album_model = require('./models/album.model')
 
-app.use(cors())
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
  
 // parse application/json
 app.use(bodyParser.json())
+
+app.use(cors())
 
 db.connect((err)=>{
     if(err)
