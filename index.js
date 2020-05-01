@@ -29,11 +29,18 @@ app.get('/', (req,res)=>{
 
 
 app.get('/canciones', cancion_model.getCanciones)
-app.get('/cancion/:id', cancion_model.getCancion)
+app.get('/cancion/:id', cancion_model.getCancionById)
 app.get('/album/:id_album/canciones', cancion_model.getCancionesByAlbumId)
 app.post('/cancion', cancion_model.createCacion)
+app.put('/cancion/:id', cancion_model.updateCancion)
+app.delete('/cancion/:id', cancion_model.deleteCancion)
 
 app.get('/albumes', album_model.getAlbumes)
-app.post('/albumes', album_model.createAlbum)
+app.get('/album/:id',album_model.getAlbumById)
+app.post('/album', album_model.createAlbum)
+app.put('/album/:id', album_model.updateAlbum)
 app.delete('/album/:id', album_model.deleteAlbum)
+
+
+
 app.listen(process.env.PORT || 3333, () => console.log("runing..."))
